@@ -7,6 +7,7 @@ require("dotenv").config();
 app.use(express.json());
 app.use(cors());
 
+app.get("/api", require("./routes/userRoutes"));
 app.get("/api/application-data", require("./routes/userRoutes"));
 app.get("/api/pending-requests", require("./routes/userRoutes"));
 app.post("/api/register", require("./routes/userRoutes"));

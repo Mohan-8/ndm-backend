@@ -8,6 +8,15 @@ pool.connect((err) => {
   console.log("Connect to PostgreSQL successfully!");
 });
 
+const chk = async (res) => {
+  try {
+    res.json({ success: true, message: "Backend working successfully" });
+  } catch (error) {
+    console.error("Error fetching application data:", error);
+    res.json({ success: false, message: "Error fetching application data" });
+  }
+};
+
 const getApplicationData = async (req, res) => {
   try {
     const query = "SELECT * FROM application";
@@ -365,4 +374,5 @@ module.exports = {
   login,
   register,
   requestApproval,
+  chk,
 };

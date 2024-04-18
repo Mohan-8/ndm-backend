@@ -10,8 +10,10 @@ const {
   login,
   register,
   requestApproval,
+  chk
 } = require("../controllers/userController");
 
+userRoute.route("/api").get(chk)
 userRoute.route("/api/application-data").get(getApplicationData);
 
 userRoute.route("/api/pending-requests").get(getPendingRequests);
